@@ -11,6 +11,7 @@ type configuration struct {
 	NewRelicName     string
 	NewRelicToken    string
 	NewRelicEnabled  string
+	AppPort          string
 }
 
 var Configuration configuration
@@ -25,5 +26,6 @@ func SetConfigs() {
 		NewRelicName:     utils.GetStringEnv(utils.ENV_NAME_NEW_RELIC_APP_NAME, "poc-golang-api-newrelic"),
 		NewRelicToken:    utils.GetStringEnv(utils.ENV_NAME_NEW_RELIC_TOKEN, ""),
 		NewRelicEnabled:  utils.GetStringEnv(utils.ENV_NAME_NEW_RELIC_ENABLED, "true"),
+		AppPort:          utils.GetStringEnv(utils.ENV_NAME_APP_PORT, "8080"),
 	}
 }

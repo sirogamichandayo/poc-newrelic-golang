@@ -13,9 +13,9 @@ func CreateHttpServer() *gin.Engine {
 
 	app := gin.Default()
 
-	pkg.InitNewrelicApplication()
+	newRelicApp := pkg.InitNewrelicApplication()
 
-	app.Use(nrgin.Middleware(pkg.NewRelicApp))
+	app.Use(nrgin.Middleware(newRelicApp))
 
 	userRepository := repository.CreateUserRepository()
 	userService := services.CreateUserService(userRepository)

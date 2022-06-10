@@ -7,9 +7,7 @@ import (
 	"github.com/newrelic/go-agent/v3/newrelic"
 )
 
-var NewRelicApp *newrelic.Application
-
-func InitNewrelicApplication() {
+func InitNewrelicApplication() *newrelic.Application {
 	app, err := newrelic.NewApplication(
 		newrelic.ConfigAppName(config.Configuration.NewRelicName),
 		newrelic.ConfigLicense(config.Configuration.NewRelicToken),
@@ -21,5 +19,5 @@ func InitNewrelicApplication() {
 		fmt.Printf("Error to start newrelic app")
 	}
 
-	NewRelicApp = app
+	return app
 }

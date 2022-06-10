@@ -11,5 +11,5 @@ func main() {
 	repository.ConnectDatabase()
 	httpServer := server.CreateHttpServer()
 
-	httpServer.Run(":8080")
+	httpServer.Run(":" + config.Configuration.AppPort)
 }

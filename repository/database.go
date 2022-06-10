@@ -24,7 +24,11 @@ func ConnectDatabase() {
 
 	dsn := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s", databaseHost, user, password, databaseName, port)
 
-	conn, _ := sql.Open("nrpgx", dsn)
+	conn, err := sql.Open("nrpgx", dsn)
+
+	if err != nil {
+		log.Fatalf("error to open connection with database %s", err.Error())
+	}
 
 	db, err := gorm.Open(postgres.New(postgres.Config{
 		Conn: conn,
