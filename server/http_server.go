@@ -3,6 +3,7 @@ package server
 import (
 	"github.com/dijsilva/golang-api-newrelic/adapters"
 	"github.com/dijsilva/golang-api-newrelic/pkg"
+	"github.com/dijsilva/golang-api-newrelic/pkg/github"
 	"github.com/dijsilva/golang-api-newrelic/repository"
 	"github.com/dijsilva/golang-api-newrelic/services"
 	"github.com/gin-gonic/gin"
@@ -18,7 +19,8 @@ func CreateHttpServer() *gin.Engine {
 	app.Use(nrgin.Middleware(newRelicApp))
 
 	userRepository := repository.CreateUserRepository()
-	userService := services.CreateUserService(userRepository)
+	githubClient := github.NewGithubClient()
+	userService := services.CreateUserService(userRepository, githubClient)
 	userController := adapters.CreateUserController(userService)
 
 	userRoutes := app.Group("users")

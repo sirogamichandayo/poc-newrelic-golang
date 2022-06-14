@@ -12,6 +12,7 @@ type configuration struct {
 	NewRelicToken    string
 	NewRelicEnabled  string
 	AppPort          string
+	GithubUserApiURI string
 }
 
 var Configuration configuration
@@ -27,5 +28,6 @@ func SetConfigs() {
 		NewRelicToken:    utils.GetStringEnv(utils.ENV_NAME_NEW_RELIC_TOKEN, ""),
 		NewRelicEnabled:  utils.GetStringEnv(utils.ENV_NAME_NEW_RELIC_ENABLED, "true"),
 		AppPort:          utils.GetStringEnv(utils.ENV_NAME_APP_PORT, "8080"),
+		GithubUserApiURI: utils.GetStringEnv(utils.ENV_NAME_URI_GITHUB_API, "https://api.github.com/users/"),
 	}
 }
