@@ -3,6 +3,7 @@ package services
 import (
 	"context"
 	"errors"
+	"github.com/dijsilva/golang-api-newrelic/pkg"
 	"net/http"
 
 	apperrors "github.com/dijsilva/golang-api-newrelic/app_errors"
@@ -31,6 +32,8 @@ func CreateUserService(repository repository.UserRepository, githubClient github
 }
 
 func (s *userService) Create(user dtos.User, ctx context.Context) apperrors.AppError {
+	pkg.GetLogger(ctx).Info("service.user.create")
+
 	txn := newrelic.FromContext(ctx)
 	defer txn.StartSegment("services.user.Create").End()
 
@@ -79,6 +82,7 @@ func (s *userService) Create(user dtos.User, ctx context.Context) apperrors.AppE
 }
 
 func (s *userService) List(ctx context.Context) ([]dtos.User, apperrors.AppError) {
+	pkg.GetLogger(ctx).Info("service.user.list")
 	txn := newrelic.FromContext(ctx)
 	defer txn.StartSegment("service.user.List").End()
 	users, err := s.repository.Find(ctx)

@@ -2,7 +2,6 @@ package repository
 
 import (
 	"context"
-
 	"github.com/dijsilva/golang-api-newrelic/entities"
 	"github.com/google/uuid"
 	"github.com/newrelic/go-agent/v3/newrelic"
@@ -14,7 +13,8 @@ type UserRepository interface {
 	Find(ctx context.Context) ([]entities.User, error)
 }
 
-type userRepository struct{}
+type userRepository struct {
+}
 
 func CreateUserRepository() UserRepository {
 	return &userRepository{}
