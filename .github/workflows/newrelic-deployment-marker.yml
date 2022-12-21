@@ -18,4 +18,4 @@ jobs:
           apiKey: ${{ secrets.NEW_RELIC_API_KEY }}
           accountId: ${{ secrets.NEW_RELIC_ACCOUNT_ID }}
           applicationId: ${{ secrets.NEW_RELIC_APPLICATION_ID }}
-          revision: "test-revision"
+          revision: "${{ GITHUB_REF }} - ${{ GITHUB_SHA }}"
