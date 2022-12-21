@@ -1,0 +1,17 @@
+# Add a New Relic application deployment marker on release
+on:
+  - release
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Apply New Relic deployment marker
+        uses: newrelic/deployment-marker-action@master
+        with:
+          apiKey: ${{ secrets.NEW_RELIC_API_KEY }}
+          applicationId: <your application ID>
+          revision: ${{ github.ref }}-${{ github.sha }}  
+          region: US                                    
+          accountId: <your New Relic account ID>         
+          user: ${{ github.actor }} 
