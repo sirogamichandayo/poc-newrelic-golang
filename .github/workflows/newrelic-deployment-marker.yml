@@ -17,4 +17,4 @@ jobs:
           apiKey: ${{ secrets.NEW_RELIC_API_KEY }}
           accountId: ${{ secrets.NEW_RELIC_ACCOUNT_ID }}
           applicationId: ${{ secrets.NEW_RELIC_APPLICATION_ID }}
-          revision: "CURRENT_DATETIME=$(date +'%Y-%m-%d %H:%M:%S') - ${{ GITHUB_SHA }}"
+          revision: "CURRENT_DATETIME=$(date +'%Y-%m-%d %H:%M:%S')"
