@@ -8,10 +8,10 @@ jobs:
     runs-on: ubuntu-latest
     name: New Relic
     steps:
-      - run: ${{ secrets.NEW_RELIC_API_KEY }}
-      - run: ${{ secrets.NEW_RELIC_ACCOUNT_ID }}
-      - run: ${{ secrets.NEW_RELIC_APPLICATION_ID }}
-      
+      - run: echo ${{ secrets.NEW_RELIC_API_KEY }}
+      - run: echo ${{ secrets.NEW_RELIC_ACCOUNT_ID }}
+      - run: echo ${{ secrets.NEW_RELIC_APPLICATION_ID }}
+
       - name: Create New Relic deployment marker
         uses: newrelic/deployment-marker-action@v1
         with:
