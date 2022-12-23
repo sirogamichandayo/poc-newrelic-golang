@@ -2,14 +2,19 @@ name: Release
 
 on:
   push:
-    branches:
-      - main
+    - main
 
 jobs:
   newrelic:
     runs-on: ubuntu-latest
     name: New Relic
     steps:
+      - run: |
+          echo '1' $GITHUB_REF
+          echo '2' ${{ github.ref }}
+          echo '3' ${{ github.ref_name }}
+          echo '4' ${{ github.head_ref }}
+          echo '5' ${{ github.base_ref }}
 
       - name: Create New Relic deployment marker
         uses: newrelic/deployment-marker-action@v1
@@ -17,4 +22,4 @@ jobs:
           apiKey: ${{ secrets.NEW_RELIC_API_KEY }}
           accountId: ${{ secrets.NEW_RELIC_ACCOUNT_ID }}
           applicationId: ${{ secrets.NEW_RELIC_APPLICATION_ID }}
-          revision: "CURRENT_DATETIME=$(date +'%Y-%m-%d %H:%M:%S')"
+          revision: "{{ github.sha }}"
