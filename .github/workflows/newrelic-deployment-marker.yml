@@ -10,9 +10,9 @@ jobs:
     name: New Relic
     steps:
       - name: GitHub Tag Name example2
-          run: |
-            echo "Tag name from GITHUB_REF_NAME: $GITHUB_REF_NAME"
-            echo "Tag name from github.ref_name: ${{  github.ref_name }}"
+        run: |
+          echo "Tag name from GITHUB_REF_NAME: $GITHUB_REF_NAME"
+          echo "Tag name from github.ref_name: ${{  github.ref_name }}"
 
       - name: Create New Relic deployment marker
         uses: newrelic/deployment-marker-action@v1
