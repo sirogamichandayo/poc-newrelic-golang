@@ -9,15 +9,10 @@ jobs:
     runs-on: ubuntu-latest
     name: New Relic
     steps:
-      - name: GitHub Tag Name example3
-        run: |
-          echo "Tag name from GITHUB_REF_NAME: $GITHUB_REF_NAME"
-          echo "Tag name from github.ref_name: ${{  github.ref_name }}"
-
       - name: Create New Relic deployment marker
         uses: newrelic/deployment-marker-action@v1
         with:
           apiKey: ${{ secrets.NEW_RELIC_API_KEY }}
           accountId: ${{ secrets.NEW_RELIC_ACCOUNT_ID }}
           applicationId: ${{ secrets.NEW_RELIC_APPLICATION_ID }}
-          revision: "${{ env.RELEASE_VERSION }}"
+          revision: "${{  github.ref_name }}"
