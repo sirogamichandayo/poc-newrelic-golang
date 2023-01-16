@@ -19,7 +19,7 @@ func ConnectDatabase() {
 	databaseHost := config.Configuration.PostgresHost
 	user := config.Configuration.PostgresUser
 	password := config.Configuration.PostgresPassword
-	databaseName := config.Configuration.PostgresDatabse
+	databaseName := config.Configuration.PostgresDatabase
 	port := config.Configuration.PostgresPort
 
 	dsn := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s", databaseHost, user, password, databaseName, port)
