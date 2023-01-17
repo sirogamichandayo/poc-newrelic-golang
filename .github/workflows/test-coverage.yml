@@ -8,9 +8,10 @@ on:
       - "server/**"
 
 jobs:
-  runs-on: ubuntu-latest
-  steps:
-    - name: test
-      run: |
-        rate=10
-        echo $rate
+  hoge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: test
+        run: |
+          rate=10
+          echo $rate
