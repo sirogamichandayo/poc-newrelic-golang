@@ -24,7 +24,7 @@ jobs:
           issue-number: ${{ github.event.pull_request.number }}
           body: |
             ## 🍰  Time 🍰
-            ### $(date +'%Y-%m-%d')
+            ### new
 
       - name: Update test coverage comment
         if: steps.fc.outputs.comment-id != ''
@@ -34,4 +34,4 @@ jobs:
           edit-mode: replace
           body: |
             ## 🍰  Time 🍰
-            ### $(date +'%Y-%m-%d')
+            ### replace
