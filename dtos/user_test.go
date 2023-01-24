@@ -7,7 +7,7 @@ import (
 func Test_GithubUserData(t *testing.T) {
 	gu := GithubUserData{
 		AvatarUrl: "https://gitlab.com",
-		Location:  "Ehime",
+		Location:  "JP",
 	}
 
 	b, err := gu.Json()
