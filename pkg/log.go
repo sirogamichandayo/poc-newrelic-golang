@@ -8,7 +8,7 @@ import (
 )
 
 const (
-	LoggerContextKey = "loggerTransaction"
+	LoggerContextKey = "loggerTransaction2"
 )
 
 type Logger struct {
