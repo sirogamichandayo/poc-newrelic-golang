@@ -6,7 +6,7 @@ type configuration struct {
 	PostgresHost     string
 	PostgresUser     string
 	PostgresPassword string
-	PostgresDatabse  string
+	PostgresDatabase string
 	PostgresPort     string
 	NewRelicName     string
 	NewRelicToken    string
@@ -22,7 +22,7 @@ func SetConfigs() {
 		PostgresHost:     utils.GetStringEnv(utils.ENV_NAME_POSTGRES_HOST, "localhost"),
 		PostgresUser:     utils.GetStringEnv(utils.ENV_NAME_POSTGRES_USER, "user"),
 		PostgresPassword: utils.GetStringEnv(utils.ENV_NAME_POSTGRES_PASSWORD, "pass"),
-		PostgresDatabse:  utils.GetStringEnv(utils.ENV_NAME_POSTGRES_DATABASE, "users"),
+		PostgresDatabase: utils.GetStringEnv(utils.ENV_NAME_POSTGRES_DATABASE, "users"),
 		PostgresPort:     utils.GetStringEnv(utils.ENV_NAME_POSTGRES_PORT, "5432"),
 		NewRelicName:     utils.GetStringEnv(utils.ENV_NAME_NEW_RELIC_APP_NAME, "poc-golang-api-newrelic"),
 		NewRelicToken:    utils.GetStringEnv(utils.ENV_NAME_NEW_RELIC_TOKEN, ""),
