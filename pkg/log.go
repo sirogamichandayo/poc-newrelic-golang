@@ -29,7 +29,7 @@ func NewLoggerWithContext(ctx context.Context, app *newrelic.Application) *Logge
 }
 
 func (l Logger) Info(args ...interface{}) {
-	l.entry.Info(args)
+	l.entry.Info(args...)
 }
 
 func GetLogger(ctx context.Context) ILogger {
