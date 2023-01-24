@@ -1,15 +1,37 @@
 name: Test Coverage
-
 on:
   push:
     branches:
       - main
+  pull_request:
 
 jobs:
   hoge:
     runs-on: ubuntu-latest
     steps:
-      - name: test
-        run: |
-          rate=10
-          echo $rate
+      - name: Find test coverage comment
+        uses: peter-evans/find-comment@v2
+        id: fc
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          comment-author: 'github-actions[bot]'
+          body-includes: 🍰  Time 🍰
+
+      - name: Create test coverage comment
+        if: steps.fc.outputs.comment-id == ''
+        uses: peter-evans/create-or-update-comment@v2
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          body: |
+            ## 🍰  Time 🍰
+            ### new
+
+      - name: Update test coverage comment
+        if: steps.fc.outputs.comment-id != ''
+        uses: peter-evans/create-or-update-comment@v2
+        with:
+          comment-id: ${{ steps.fc.outputs.comment-id }}
+          edit-mode: replace
+          body: |
+            ## 🍰  Time 🍰
+            ### replace
